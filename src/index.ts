@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as progress from "cli-progress";
 
 type User = {
   pk: number;
@@ -21,7 +22,8 @@ type ResponseJSON = {
   has_more: boolean;
 };
 
-const dryRun = true;
+const lastUnfollowedIndex = 200;
+const dryRun = false;
 const file = "following.json";
 const pageSize = 100;
 
@@ -84,7 +86,10 @@ async function unfollow() {
     } users. You were previously following ${following.length} users.`
   );
 
-  for (const user of usersToUnfollow) {
+  const bar = new progress.SingleBar({}, progress.Presets.shades_classic);
+  bar.start(usersToUnfollow.length, lastUnfollowedIndex);
+
+  for (const user of usersToUnfollow.slice(lastUnfollowedIndex)) {
     if (!dryRun) {
       console.log(`Unfollowing public account ${user.username}...`);
       const res = await fetch(
@@ -127,7 +132,9 @@ async function unfollow() {
         console.log(res);
       }
     }
+    bar.increment();
   }
+  bar.stop();
 }
 
 unfollow();

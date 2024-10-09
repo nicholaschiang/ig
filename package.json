@@ -17,6 +17,7 @@
   "packageManager": "pnpm@8.10.5+sha512.9c161f433d85551c58f1b3a10b18cc3df72b5a02d2caee6566cc05b6f20addef947e795d90c39033bf92de55177ead69d87f62a9daadc91e7a2e3b58f49353a0",
   "devDependencies": {
     "@playwright/test": "^1.48.0",
+    "@types/cli-progress": "^3.11.6",
     "@types/node": "^22.7.5"
   },
   "directories": {
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/nicholaschiang/ig#readme",
   "dependencies": {
+    "cli-progress": "^3.12.0",
     "tslint": "^5.20.1",
     "typescript": "^5.6.3"
   },
