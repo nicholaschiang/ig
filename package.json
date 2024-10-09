@@ -1,15 +1,42 @@
 {
   "name": "ig",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "node lib/index.js",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "prepublish": "npm run build"
+  },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Nicholas Chiang"
+  },
   "license": "ISC",
-  "description": "",
+  "description": "A simple repository that contains the code I used to unfollow every public account that has more than 10,000 followers on Instagram. I had an issue with following basically everyone on Instagram. I had grown tired of my feed populated by attractive strangers. This was also somewhat prompted by a recently discovered disgust for everyone but one person's looks.",
   "packageManager": "pnpm@8.10.5+sha512.9c161f433d85551c58f1b3a10b18cc3df72b5a02d2caee6566cc05b6f20addef947e795d90c39033bf92de55177ead69d87f62a9daadc91e7a2e3b58f49353a0",
   "devDependencies": {
     "@playwright/test": "^1.48.0",
     "@types/node": "^22.7.5"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholaschiang/ig.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicholaschiang/ig/issues"
+  },
+  "homepage": "https://github.com/nicholaschiang/ig#readme",
+  "dependencies": {
+    "tslint": "^5.20.1",
+    "typescript": "^5.6.3"
+  },
+  "files": [
+    "./bin/*",
+    "./lib/*"
+  ],
+  "typings": "./lib/index.d.ts"
 }
